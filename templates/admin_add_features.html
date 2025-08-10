@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Add Features - Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="admin-features-container">
+    <div class="features-card">
+        <div class="features-header">
+            <h1>✨ Add Features Content</h1>
+            <p>Add new features and capabilities to showcase on the features page</p>
+        </div>
+
+        <form method="POST" class="features-form">
+            <div class="form-group">
+                <label for="content">Feature Description *</label>
+                <textarea id="content" name="content" rows="6" required 
+                          placeholder="Describe the feature in detail. For example:&#10;&#10;🚗 Easy Booking System&#10;Our advanced booking system allows users to reserve parking slots in advance with just a few clicks. No more circling around looking for parking!&#10;&#10;💰 Transparent Pricing&#10;Clear and competitive pricing for all vehicle types with no hidden charges."></textarea>
+                <small class="form-hint">Use emojis and clear descriptions to make features engaging</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Add Feature</button>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+            </div>
+        </form>
+
+        <div class="features-preview">
+            <h3>📋 Current Features</h3>
+            <p>Features you add will appear on the <a href="{{ url_for('features') }}" target="_blank">Features page</a> for users to view.</p>
+            
+            <div class="preview-tips">
+                <h4>💡 Tips for Great Features:</h4>
+                <ul>
+                    <li>Start with an emoji to make it visually appealing</li>
+                    <li>Use clear, benefit-focused language</li>
+                    <li>Keep descriptions concise but informative</li>
+                    <li>Highlight what makes your system unique</li>
+                    <li>Focus on user benefits, not just technical features</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.admin-features-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.features-header {
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.features-header h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.features-header p {
+    opacity: 0.9;
+    margin: 0;
+}
+
+.features-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #005f73;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    line-height: 1.5;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0a9396;
+    box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.1);
+}
+
+.form-hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+.features-preview {
+    background: #f8f9fa;
+    padding: 25px;
+    border-top: 1px solid #e9ecef;
+}
+
+.features-preview h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+}
+
+.features-preview p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.features-preview a {
+    color: #0a9396;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.features-preview a:hover {
+    text-decoration: underline;
+}
+
+.preview-tips {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0a9396;
+}
+
+.preview-tips h4 {
+    color: #005f73;
+    margin-bottom: 15px;
+}
+
+.preview-tips ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.preview-tips li {
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .admin-features-container {
+        margin: 0 20px;
+    }
+    
+    .features-header {
+        padding: 20px;
+    }
+    
+    .features-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .features-preview {
+        padding: 20px;
+    }
+}
+</style>
+{% endblock %}

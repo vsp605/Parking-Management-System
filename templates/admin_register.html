@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Registration - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="admin-register-container">
+    <div class="register-card">
+        <div class="register-header">
+            <h1>🔐 Admin Registration</h1>
+            <p>Create a new administrator account for the parking management system</p>
+        </div>
+
+        <form method="POST" class="register-form">
+            <div class="form-group">
+                <label for="username">Username *</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Enter admin username" minlength="3" maxlength="50">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="Enter admin email address">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Enter password" minlength="6">
+                <small class="password-hint">Password must be at least 6 characters long</small>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password *</label>
+                <input type="password" id="confirm_password" name="confirm_password" required 
+                       placeholder="Confirm your password">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Register Admin</button>
+                <a href="{{ url_for('admin_login') }}" class="btn btn-secondary">Already have an account? Login</a>
+            </div>
+        </form>
+
+        <div class="security-notice">
+            <h3>🔒 Security Notice</h3>
+            <ul>
+                <li>Admin accounts have full system access</li>
+                <li>Use a strong, unique password</li>
+                <li>Keep your credentials secure</li>
+                <li>Contact system administrator for account management</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.admin-register-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.register-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.register-header {
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.register-header h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.register-header p {
+    opacity: 0.9;
+    margin: 0;
+}
+
+.register-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #005f73;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0a9396;
+    box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.1);
+}
+
+.password-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+.security-notice {
+    background: #f8f9fa;
+    padding: 25px;
+    border-top: 1px solid #e9ecef;
+}
+
+.security-notice h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.security-notice ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.security-notice li {
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .admin-register-container {
+        margin: 0 20px;
+    }
+    
+    .register-header {
+        padding: 20px;
+    }
+    
+    .register-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+    
+    function validatePassword() {
+        if (password.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity('Passwords do not match');
+        } else {
+            confirmPassword.setCustomValidity('');
+        }
+    }
+    
+    password.addEventListener('change', validatePassword);
+    confirmPassword.addEventListener('keyup', validatePassword);
+});
+</script>
+{% endblock %}

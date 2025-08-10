@@ -1,0 +1,605 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+    <div class="contact-header">
+        <h1>📞 Contact Us</h1>
+        <p>Get in touch with our support team for any questions or assistance</p>
+    </div>
+
+    <div class="contact-content">
+        <div class="contact-info-section">
+            <h2>📋 Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone Support</h3>
+                    <p class="contact-number">+91 9740108901</p>
+                    <p class="contact-desc">Available 24/7 for urgent parking issues</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p class="contact-email">spvinayaka901@gmail.com</p>
+                    <p class="contact-desc">Response within 24 hours</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🔒</div>
+                    <h3>Security</h3>
+                    <p class="contact-number">+91 8722785212</p>
+                    <p class="contact-desc">For security and emergency issues</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🏢</div>
+                    <h3>Office Address</h3>
+                    <p class="contact-address">vidyagiri bagalkot <br>City Center, 587103</p>
+                    <p class="contact-desc">Visit us during business hours</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="support-hours">
+            <h2>⏰ Support Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>📞 Phone Support</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">8:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">10:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item emergency">
+                            <span class="day">Emergency Support</span>
+                            <span class="time">24/7 Available</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <h3>📧 Email Support</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">Response Time</span>
+                            <span class="time">Within 24 hours</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Priority Support</span>
+                            <span class="time">Within 4 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emergency-section">
+            <h2>🚨 Emergency Contacts</h2>
+            <div class="emergency-grid">
+                <div class="emergency-card">
+                    <div class="emergency-icon">🚔</div>
+                    <h3>Police</h3>
+                    <p class="emergency-number">100</p>
+                    <p>For serious incidents and crimes</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">🚑</div>
+                    <h3>Ambulance</h3>
+                    <p class="emergency-number">108</p>
+                    <p>For medical emergencies</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">🚒</div>
+                    <h3>Fire Department</h3>
+                    <p class="emergency-number">101</p>
+                    <p>For fire emergencies</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">🔧</div>
+                    <h3>Roadside Assistance</h3>
+                    <p class="emergency-number">+91 98765 43212</p>
+                    <p>For vehicle breakdowns</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>❓ Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How do I report a parking issue?</h4>
+                    <p>Call our support number or send us an email with details of the issue. Include your vehicle number and parking location.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I can't find my vehicle?</h4>
+                    <p>Contact security immediately. They will help you locate your vehicle using our tracking system.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I get a refund?</h4>
+                    <p>Email us with your payment details and reason for refund. We'll process it within 3-5 business days.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I book parking for someone else?</h4>
+                    <p>Yes, you can book parking for others. Just provide their vehicle details during the booking process.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <h2>💬 Send Us Feedback</h2>
+            <p>We value your feedback to improve our services. Let us know about your experience!</p>
+            <div class="feedback-options">
+                <a href="mailto:vishnumetre021@gmail.com" class="feedback-btn">
+                    <span class="feedback-icon">📧</span>
+                    <span>Email Feedback</span>
+                </a>
+                <a href="tel:+918310797473" class="feedback-btn">
+                    <span class="feedback-icon">📞</span>
+                    <span>Call Us</span>
+                </a>
+                <a href="{{ url_for('notification') }}" class="feedback-btn">
+                    <span class="feedback-icon">📢</span>
+                    <span>View Updates</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Need Immediate Assistance?</h2>
+        <p>Our support team is here to help you with any parking-related questions or issues</p>
+        <div class="cta-buttons">
+            <a href="tel:+919740108901" class="btn btn-primary">Call Now</a>
+            <a href="mailto:parking@example.com" class="btn btn-secondary">Send Email</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.contact-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.contact-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.contact-content {
+    margin-bottom: 40px;
+}
+
+.contact-info-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.contact-info-section h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: #0a9396;
+    background: white;
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.contact-number,
+.contact-email {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0a9396;
+    margin-bottom: 10px;
+}
+
+.contact-address {
+    font-size: 1.1rem;
+    color: #0a9396;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.contact-desc {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.support-hours {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.support-hours h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.hours-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #0a9396;
+}
+
+.hours-card h3 {
+    color: #005f73;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hours-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hours-item:last-child {
+    border-bottom: none;
+}
+
+.hours-item.emergency {
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ffc107;
+}
+
+.day {
+    font-weight: 600;
+    color: #005f73;
+}
+
+.time {
+    color: #666;
+    font-weight: 500;
+}
+
+.emergency-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.emergency-section h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.emergency-card {
+    text-align: center;
+    padding: 25px;
+    background: #fff5f5;
+    border-radius: 10px;
+    border: 2px solid #fed7d7;
+    transition: all 0.3s ease;
+}
+
+.emergency-card:hover {
+    border-color: #fc8181;
+    transform: translateY(-2px);
+}
+
+.emergency-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.emergency-card h3 {
+    color: #c53030;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.emergency-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e53e3e;
+    margin-bottom: 8px;
+}
+
+.emergency-card p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.faq-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.faq-section h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.faq-item {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #0a9396;
+}
+
+.faq-item h4 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.feedback-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.feedback-section h2 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.feedback-section p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.feedback-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feedback-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: #f8f9fa;
+    color: #005f73;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.feedback-btn:hover {
+    background: #0a9396;
+    color: white;
+    border-color: #0a9396;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.feedback-icon {
+    font-size: 1.2rem;
+}
+
+.cta-section {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.cta-section h2 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .contact-header {
+        padding: 20px;
+    }
+    
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .emergency-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feedback-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-info-section,
+    .support-hours,
+    .emergency-section,
+    .faq-section,
+    .feedback-section {
+        padding: 20px;
+    }
+    
+    .cta-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .emergency-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

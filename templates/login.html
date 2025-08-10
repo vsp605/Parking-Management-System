@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}User Login - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <h1>🔐 User Login</h1>
+            <p>Welcome back! Please sign in to access your parking dashboard</p>
+        </div>
+
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="Enter your email address" autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Enter your password" autocomplete="current-password">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Create New Account</a>
+            </div>
+        </form>
+
+        <div class="login-footer">
+            <div class="login-features">
+                <h3>🚗 What You Can Do After Login</h3>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">📅</span>
+                        <div class="feature-content">
+                            <h4>Book Parking Slots</h4>
+                            <p>Reserve your parking space in advance</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <div class="feature-content">
+                            <h4>Make Payments</h4>
+                            <p>Pay for parking securely online</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📋</span>
+                        <div class="feature-content">
+                            <h4>View Bookings</h4>
+                            <p>Check your parking history and status</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📄</span>
+                        <div class="feature-content">
+                            <h4>Generate Bills</h4>
+                            <p>Download parking receipts and bills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.login-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.login-header {
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.login-header h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.login-header p {
+    opacity: 0.9;
+    margin: 0;
+}
+
+.login-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #005f73;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0a9396;
+    box-shadow: 0 0 0 3px rgba(10, 147, 150, 0.1);
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+.login-footer {
+    background: #f8f9fa;
+    padding: 25px;
+    border-top: 1px solid #e9ecef;
+}
+
+.login-features h3 {
+    color: #005f73;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature-content h4 {
+    color: #005f73;
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+
+.feature-content p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        margin: 0 20px;
+    }
+    
+    .login-header {
+        padding: 20px;
+    }
+    
+    .login-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .login-footer {
+        padding: 20px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+</style>
+{% endblock %}

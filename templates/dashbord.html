@@ -1,0 +1,7 @@
+<h2>Available Parking Slots</h2>
+<ul>
+    {% for slot in slots %}
+    <li>{{ slot.location }} - <a href="/book/{{ slot.id }}">Book</a></li>
+    {% endfor %}
+</ul>
+<a href="/logout">Logout</a>

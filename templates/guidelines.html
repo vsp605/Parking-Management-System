@@ -1,0 +1,525 @@
+{% extends "base.html" %}
+
+{% block title %}Parking Guidelines - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="guidelines-page">
+    <div class="guidelines-header">
+        <h1>📋 Parking Guidelines</h1>
+        <p>Important rules and regulations for using our parking management system</p>
+    </div>
+
+    {% if guidelines_content %}
+        <div class="guidelines-content">
+            {% for guideline in guidelines_content %}
+                <div class="guideline-card">
+                    <div class="guideline-content">
+                        {{ guideline[0] | safe }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="default-guidelines">
+            <div class="guidelines-grid">
+                <div class="guideline-card">
+                    <div class="guideline-icon">🚫</div>
+                    <h3>No Parking Zones</h3>
+                    <p>Please do not park in designated no-parking areas. Violators will be fined according to local regulations.</p>
+                </div>
+                <div class="guideline-card">
+                    <div class="guideline-icon">⏰</div>
+                    <h3>Time Limits</h3>
+                    <p>Maximum parking duration is 24 hours. Extended stays require prior approval from parking management.</p>
+                </div>
+                <div class="guideline-card">
+                    <div class="guideline-icon">🚗</div>
+                    <h3>Vehicle Safety</h3>
+                    <p>Ensure your vehicle is properly locked and valuables are secured. We are not responsible for lost items.</p>
+                </div>
+                <div class="guideline-card">
+                    <div class="guideline-icon">💰</div>
+                    <h3>Payment Rules</h3>
+                    <p>Payment must be completed before leaving the parking area. No refunds for early departure.</p>
+                </div>
+                <div class="guideline-card">
+                    <div class="guideline-icon">🚨</div>
+                    <h3>Emergency Procedures</h3>
+                    <p>In case of emergency, contact security immediately. Emergency numbers are displayed throughout the facility.</p>
+                </div>
+                <div class="guideline-card">
+                    <div class="guideline-icon">🛡️</div>
+                    <h3>Security Guidelines</h3>
+                    <p>Follow all security instructions. CCTV surveillance is active 24/7 for your safety.</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="important-notices">
+        <h2>⚠️ Important Notices</h2>
+        <div class="notices-grid">
+            <div class="notice-card warning">
+                <div class="notice-icon">⚠️</div>
+                <h4>Parking Violations</h4>
+                <ul>
+                    <li>Unauthorized parking will result in towing</li>
+                    <li>Fines must be paid within 7 days</li>
+                    <li>Repeated violations may result in parking privileges being revoked</li>
+                </ul>
+            </div>
+            <div class="notice-card info">
+                <div class="notice-icon">ℹ️</div>
+                <h4>General Information</h4>
+                <ul>
+                    <li>Parking is available on a first-come, first-served basis</li>
+                    <li>Reserved spots are clearly marked</li>
+                    <li>Handicap parking requires proper permits</li>
+                </ul>
+            </div>
+            <div class="notice-card safety">
+                <div class="notice-icon">🛡️</div>
+                <h4>Safety Guidelines</h4>
+                <ul>
+                    <li>Drive slowly and carefully in parking areas</li>
+                    <li>Watch for pedestrians and other vehicles</li>
+                    <li>Report any suspicious activity to security</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <h2>📞 Contact Information</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-details">
+                    <h4>Parking Support</h4>
+                    <p>+919740108901</p>
+                    <small>Available 24/7</small>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🔒</div>
+                <div class="contact-details">
+                    <h4>Security</h4>
+                    <p>+919876543211</p>
+                    <small>Emergency response</small>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                    <h4>Email Support</h4>
+                    <p>spvinayaka901.com</p>
+                    <small>Response within 24 hours</small>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🚨</div>
+                <div class="contact-details">
+                    <h4>Emergency</h4>
+                    <p>100 (Police)</p>
+                    <small>For serious incidents</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>What if I lose my parking ticket?</h4>
+                <p>Contact parking support immediately. You may be charged a lost ticket fee.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I extend my parking time?</h4>
+                <p>Yes, you can extend your parking time through the mobile app or at payment kiosks.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens if my vehicle is damaged?</h4>
+                <p>Report any damage immediately to security. We have insurance coverage for such incidents.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is overnight parking allowed?</h4>
+                <p>Yes, but you must pay for the full duration. Maximum stay is 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Need Help Understanding These Guidelines?</h2>
+        <p>Our support team is here to help you with any questions about parking rules and regulations</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Contact Support</a>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.guidelines-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guidelines-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.guidelines-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.guidelines-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.guidelines-content {
+    margin-bottom: 40px;
+}
+
+.guideline-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border-left: 4px solid #ffc107;
+}
+
+.guideline-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.default-guidelines {
+    margin-bottom: 40px;
+}
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.guideline-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 4px solid #ffc107;
+    transition: transform 0.3s ease;
+}
+
+.guideline-card:hover {
+    transform: translateY(-5px);
+}
+
+.guideline-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.guideline-card h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.guideline-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.important-notices {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.important-notices h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.notices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.notice-card {
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.notice-card.warning {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+.notice-card.info {
+    background: #d1ecf1;
+    border-left-color: #17a2b8;
+}
+
+.notice-card.safety {
+    background: #d4edda;
+    border-left-color: #28a745;
+}
+
+.notice-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.notice-card h4 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.notice-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.notice-card li {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.contact-info {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.contact-info h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    border-color: #0a9396;
+    background: white;
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    color: #005f73;
+    margin: 0 0 5px 0;
+}
+
+.contact-details p {
+    color: #666;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.contact-details small {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.faq-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.faq-section h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.faq-item {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #0a9396;
+}
+
+.faq-item h4 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cta-section {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.cta-section h2 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .guidelines-header {
+        padding: 20px;
+    }
+    
+    .guidelines-header h1 {
+        font-size: 2rem;
+    }
+    
+    .guidelines-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .notices-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .important-notices,
+    .contact-info,
+    .faq-section {
+        padding: 20px;
+    }
+    
+    .cta-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %} 

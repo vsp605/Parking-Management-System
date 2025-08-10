@@ -1,0 +1,425 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="user-dashboard">
+    <div class="dashboard-header">
+        <h1>🚗 Welcome, {{ username }}!</h1>
+        <p>Your parking management dashboard - Book slots, make payments, and manage your parking</p>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-grid">
+            <a href="{{ url_for('slots', location='Mall') }}" class="action-card">
+                <div class="action-icon">🛕</div>
+                <h3>Bagalkot Parking</h3>
+                <p>Book slots at the Bagalkot</p>
+            </a>
+            <a href="{{ url_for('slots', location='Office') }}" class="action-card">
+                <div class="action-icon">🎥</div>
+                <h3>Chandan Theater Parking</h3>
+                <p>Reserve Theater area parking</p>
+            </a>
+            <a href="{{ url_for('slots', location='Airport') }}" class="action-card">
+                <div class="action-icon">🚌</div>
+                <h3>Navanagar Parking</h3>
+                <p>Long-term Navanagar parking</p>
+            </a>
+            <a href="{{ url_for('slots', location='Hospital') }}" class="action-card">
+                <div class="action-icon">🏛️</div>
+                <h3>Vidyagiri Parking</h3>
+                <p>Vidyagiri parking</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Pricing Information -->
+    <div class="pricing-section">
+        <h2>💰 Pricing Information</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>🛵 2-Wheeler</h3>
+                    <div class="price">₹20</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>First 2 hours: ₹20</li>
+                    <li>Additional hours: ₹10/hour</li>
+                    <li>24-hour maximum</li>
+                    <li>Secure parking</li>
+                </ul>
+                <a href="{{ url_for('pricing1') }}" class="pricing-btn">View Details</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <h3>🚗 4-Wheeler</h3>
+                    <div class="price">₹40</div>
+                </div>
+                <ul class="pricing-features">
+                    <li>First 2 hours: ₹40</li>
+                    <li>Additional hours: ₹20/hour</li>
+                    <li>24-hour maximum</li>
+                    <li>Covered parking available</li>
+                </ul>
+                <a href="{{ url_for('pricing2') }}" class="pricing-btn">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Features -->
+    <div class="features-section">
+        <h2>✨ System Features</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">📅</div>
+                <h3>Advance Booking</h3>
+                <p>Book your parking slot up to 24 hours in advance</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💳</div>
+                <h3>Multiple Payment Options</h3>
+                <p>Pay with cards, UPI, or digital wallets</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>Access from any device, anywhere</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Transactions</h3>
+                <p>All payments are encrypted and secure</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📄</div>
+                <h3>Digital Receipts</h3>
+                <p>Get instant digital receipts and bills</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⏰</div>
+                <h3>24/7 Service</h3>
+                <p>Book and pay anytime, day or night</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help & Support -->
+    <div class="help-section">
+        <h2>🆘 Need Help?</h2>
+        <div class="help-options">
+            <a href="{{ url_for('features') }}" class="help-card">
+                <span class="help-icon">✨</span>
+                <span>View Features</span>
+            </a>
+            <a href="{{ url_for('guidelines') }}" class="help-card">
+                <span class="help-icon">📋</span>
+                <span>Parking Guidelines</span>
+            </a>
+            <a href="{{ url_for('contact') }}" class="help-card">
+                <span class="help-icon">📞</span>
+                <span>Contact Support</span>
+            </a>
+            <a href="{{ url_for('notification') }}" class="help-card">
+                <span class="help-icon">📢</span>
+                <span>System Updates</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.user-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.dashboard-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.quick-actions {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.quick-actions h2 {
+    margin-bottom: 25px;
+    color: #005f73;
+    text-align: center;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    background: #0a9396;
+    color: white;
+    border-color: #0a9396;
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+.action-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    margin-bottom: 10px;
+    color: inherit;
+}
+
+.action-card p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.pricing-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.pricing-section h2 {
+    margin-bottom: 25px;
+    color: #005f73;
+    text-align: center;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    min-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card.featured {
+    border-color: #0a9396;
+    background: white;
+    transform: scale(1.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-2px);
+}
+
+.pricing-header h3 {
+    color: #005f73;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0a9396;
+    margin-bottom: 15px;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.pricing-features li {
+    padding: 5px 0;
+    color: #666;
+}
+
+.pricing-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0a9396;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-btn:hover {
+    background: #005f73;
+    color: white;
+    text-decoration: none;
+}
+
+.features-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.features-section h2 {
+    margin-bottom: 25px;
+    color: #005f73;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.feature-item {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 4px solid #0a9396;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    color: #005f73;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #666;
+    margin: 0;
+}
+
+.help-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.help-section h2 {
+    margin-bottom: 25px;
+    color: #005f73;
+    text-align: center;
+}
+
+.help-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.help-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    color: #005f73;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.help-card:hover {
+    background: #0a9396;
+    color: white;
+    border-color: #0a9396;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.help-icon {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 20px;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    
+    .quick-actions,
+    .pricing-section,
+    .features-section,
+    .help-section {
+        padding: 20px;
+    }
+    
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .help-options {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

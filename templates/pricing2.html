@@ -1,0 +1,591 @@
+{% extends "base.html" %}
+
+{% block title %}4-Wheeler Pricing - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="pricing-page">
+    <div class="pricing-header">
+        <h1>🚗 4-Wheeler Parking Pricing</h1>
+        <p>Premium parking solutions for cars, SUVs, and commercial vehicles</p>
+    </div>
+
+    <div class="pricing-details">
+        <div class="pricing-card main-pricing">
+            <div class="pricing-badge">Premium</div>
+            <h2>Standard 4-Wheeler Parking</h2>
+            <div class="price-display">
+                <span class="currency">₹</span>
+                <span class="amount">40</span>
+                <span class="period">/ 2 hours</span>
+            </div>
+            <div class="pricing-features">
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>First 2 hours: ₹40</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>Additional hours: ₹20/hour</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>24-hour maximum stay</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>Covered parking available</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>24/7 CCTV surveillance</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✅</span>
+                    <span>Digital receipt & bill</span>
+                </div>
+            </div>
+            <div class="pricing-actions">
+                <a href="{{ url_for('slots', location='Mall') }}" class="btn btn-primary">Book Now</a>
+                <a href="{{ url_for('webpage') }}" class="btn btn-secondary">Back to Dashboard</a>
+            </div>
+        </div>
+
+        <div class="pricing-info">
+            <h3>📋 Pricing Breakdown</h3>
+            <div class="pricing-table">
+                <div class="table-row header">
+                    <div class="duration">Duration</div>
+                    <div class="cost">Cost</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">0-2 hours</div>
+                    <div class="cost">₹40</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">2-3 hours</div>
+                    <div class="cost">₹60</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">3-4 hours</div>
+                    <div class="cost">₹80</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">4-5 hours</div>
+                    <div class="cost">₹100</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">5-6 hours</div>
+                    <div class="cost">₹120</div>
+                </div>
+                <div class="table-row">
+                    <div class="duration">6-24 hours</div>
+                    <div class="cost">₹400 (Daily rate)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parking-types">
+        <h3>🚗 Parking Types Available</h3>
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon">🅿️</div>
+                <h4>Open Parking</h4>
+                <p>Standard outdoor parking spaces</p>
+                <span class="type-price">₹40/2hrs</span>
+            </div>
+            <div class="type-card featured">
+                <div class="type-icon">🏢</div>
+                <h4>Covered Parking</h4>
+                <p>Protected parking under shelter</p>
+                <span class="type-price">₹50/2hrs</span>
+            </div>
+            <div class="type-card">
+                <div class="type-icon">🔒</div>
+                <h4>Premium Parking</h4>
+                <p>VIP parking with extra security</p>
+                <span class="type-price">₹60/2hrs</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="additional-info">
+        <div class="info-section">
+            <h3>🚨 Important Information</h3>
+            <ul>
+                <li>Payment must be completed before leaving the parking area</li>
+                <li>Maximum parking duration is 24 hours</li>
+                <li>Extended stays require prior approval</li>
+                <li>Parking is subject to availability</li>
+                <li>No refunds for early departure</li>
+                <li>Security deposit may be required for long-term parking</li>
+                <li>Commercial vehicles may have different rates</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>🔒 Security Features</h3>
+            <ul>
+                <li>24/7 CCTV surveillance</li>
+                <li>Security personnel on duty</li>
+                <li>Well-lit parking areas</li>
+                <li>Secure entry and exit points</li>
+                <li>Vehicle registration tracking</li>
+                <li>Emergency contact numbers displayed</li>
+                <li>Fire safety equipment available</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>🚗 Vehicle Size Guidelines</h3>
+            <ul>
+                <li><strong>Small Cars:</strong> Hatchbacks, sedans (up to 4.5m)</li>
+                <li><strong>Medium Cars:</strong> SUVs, crossovers (4.5m - 5m)</li>
+                <li><strong>Large Vehicles:</strong> SUVs, vans (5m+)</li>
+                <li><strong>Commercial:</strong> Trucks, buses (special rates)</li>
+                <li>Oversized vehicles may require special arrangements</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h3>📞 Contact Information</h3>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div class="contact-details">
+                    <h4>Parking Support</h4>
+                    <p>+919740108901</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🔒</span>
+                <div class="contact-details">
+                    <h4>Security</h4>
+                    <p>+918722785412</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-details">
+                    <h4>Email</h4>
+                    <p>spvinayaka901@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">🚨</span>
+                <div class="contact-details">
+                    <h4>Emergency</h4>
+                    <p>100 (Police)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h3>Ready to Book Your Parking?</h3>
+        <p>Choose your preferred location and book your 4-wheeler parking slot now!</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('slots', location='Mall') }}" class="btn btn-primary">Bagalkot Parking</a>
+            <a href="{{ url_for('slots', location='Office') }}" class="btn btn-primary">Chandan Theater Parking</a>
+            <a href="{{ url_for('slots', location='Airport') }}" class="btn btn-primary">Navanagar Parking</a>
+            <a href="{{ url_for('slots', location='Hospital') }}" class="btn btn-primary">Vidyagiri Parking</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.pricing-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.pricing-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.pricing-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.pricing-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.pricing-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b35;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pricing-card h2 {
+    color: #005f73;
+    margin-bottom: 20px;
+}
+
+.price-display {
+    margin-bottom: 30px;
+}
+
+.currency {
+    font-size: 1.5rem;
+    color: #0a9396;
+    font-weight: 600;
+}
+
+.amount {
+    font-size: 3rem;
+    color: #0a9396;
+    font-weight: bold;
+}
+
+.period {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.pricing-features {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+}
+
+.pricing-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-1px);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+.pricing-info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.pricing-info h3 {
+    color: #005f73;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pricing-table {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row.header {
+    background: #f8f9fa;
+    font-weight: 700;
+    color: #005f73;
+}
+
+.duration, .cost {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+
+.parking-types {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.parking-types h3 {
+    color: #005f73;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.type-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    transition: transform 0.3s ease;
+}
+
+.type-card.featured {
+    border-color: #0a9396;
+    background: white;
+    transform: scale(1.05);
+}
+
+.type-card:hover {
+    transform: translateY(-2px);
+}
+
+.type-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.type-card h4 {
+    color: #005f73;
+    margin-bottom: 10px;
+}
+
+.type-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.type-price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0a9396;
+}
+
+.additional-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.info-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.info-section h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+}
+
+.info-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.info-section li {
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.contact-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.contact-section h3 {
+    color: #005f73;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    color: #005f73;
+    margin: 0 0 5px 0;
+}
+
+.contact-details p {
+    color: #666;
+    margin: 0;
+}
+
+.cta-section {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.cta-section h3 {
+    color: #005f73;
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .pricing-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-header {
+        padding: 20px;
+    }
+    
+    .pricing-header h1 {
+        font-size: 2rem;
+    }
+    
+    .pricing-card,
+    .pricing-info,
+    .parking-types,
+    .contact-section {
+        padding: 20px;
+    }
+    
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .type-card.featured {
+        transform: none;
+    }
+    
+    .additional-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %}

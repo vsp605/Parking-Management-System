@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+{% block title %}Parking Slots - {{ location }}{% endblock %}
+
+{% block head %}
+<style>
+    .slots-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .location-header {
+        text-align: center;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #005f73, #0a9396);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 95, 115, 0.3);
+    }
+
+    .location-header h1 {
+        margin: 0 0 10px 0;
+        font-size: 2.5em;
+        font-weight: 700;
+    }
+
+    .location-header p {
+        margin: 0;
+        font-size: 1.1em;
+        opacity: 0.9;
+    }
+
+    .slots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .slot-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slot-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .slot-card.available {
+        border-color: #94d2bd;
+        background: linear-gradient(135deg, #f8fffe, #e6f7f5);
+    }
+
+    .slot-card.booked {
+        border-color: #e63946;
+        background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+        opacity: 0.7;
+    }
+
+    .slot-number {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #005f73;
+    }
+
+    .slot-status {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+    }
+
+    .status-available {
+        background: #94d2bd;
+        color: #005f73;
+    }
+
+    .status-booked {
+        background: #e63946;
+        color: white;
+    }
+
+    .book-btn {
+        background: linear-gradient(135deg, #005f73, #0a9396);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9em;
+    }
+
+    .book-btn:hover {
+        background: linear-gradient(135deg, #0a9396, #005f73);
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 95, 115, 0.4);
+    }
+
+    .book-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .info-section {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .info-item {
+        text-align: center;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #005f73;
+    }
+
+    .info-item h3 {
+        margin: 0 0 10px 0;
+        color: #005f73;
+        font-size: 1.2em;
+    }
+
+    .info-item p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .pricing-info {
+        background: linear-gradient(135deg, #005f73, #0a9396);
+        color: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .pricing-info h2 {
+        margin: 0 0 20px 0;
+        font-size: 1.8em;
+    }
+
+    .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .pricing-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .pricing-card h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+    }
+
+    .pricing-card .price {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .pricing-card .details {
+        font-size: 0.9em;
+        opacity: 0.9;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background: #6c757d;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .back-btn:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(108, 117, 125, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .loading {
+        display: none;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .loading::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #005f73;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+        .slots-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .slot-card {
+            padding: 20px;
+        }
+
+        .slot-number {
+            font-size: 1.5em;
+        }
+
+        .location-header h1 {
+            font-size: 2em;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+$(document).ready(function() {
+    $('.book-btn').click(function(e) {
+        e.preventDefault();
+        
+        const slotCard = $(this).closest('.slot-card');
+        const slotId = $(this).data('slot-id');
+        const slotNumber = $(this).data('slot-number');
+        const location = '{{ location }}';
+        
+        if (!slotId) {
+            alert('This slot is not available for booking.');
+            return;
+        }
+        
+        // Show loading state
+        $(this).prop('disabled', true).text('Booking...');
+        
+        // Submit booking form
+        const form = $('<form method="POST" action="{{ url_for("book_slot") }}">' +
+            '<input type="hidden" name="slot_id" value="' + slotId + '">' +
+            '<input type="hidden" name="slot_number" value="' + slotNumber + '">' +
+            '<input type="hidden" name="location" value="' + location + '">' +
+            '</form>');
+        
+        $('body').append(form);
+        form.submit();
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="slots-container">
+    <a href="{{ url_for('webpage') }}" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+    <div class="location-header">
+        <h1>{{ location }} Parking</h1>
+        <p>Select an available slot to book your parking space</p>
+    </div>
+
+    <div class="info-section">
+        <h2>Parking Information</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h3>Total Slots</h3>
+                <p>{{ slots|length }} parking spaces</p>
+            </div>
+            <div class="info-item">
+                <h3>Available</h3>
+                <p>{{ slots|selectattr('3', 'equalto', 'available')|list|length }} slots</p>
+            </div>
+            <div class="info-item">
+                <h3>Booked</h3>
+                <p>{{ slots|selectattr('3', 'equalto', 'booked')|list|length }} slots</p>
+            </div>
+            <div class="info-item">
+                <h3>Location</h3>
+                <p>{{ location }} area</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-info">
+        <h2>Pricing Information</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>2 Wheeler</h3>
+                <div class="price">₹20</div>
+                <div class="details">First 2 hours</div>
+                <div class="details">₹10/hour after</div>
+            </div>
+            <div class="pricing-card">
+                <h3>4 Wheeler</h3>
+                <div class="price">₹40</div>
+                <div class="details">First 2 hours</div>
+                <div class="details">₹20/hour after</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Available Slots</h2>
+    <div class="slots-grid">
+        {% for slot in slots %}
+        <div class="slot-card {% if slot[3] == 'available' %}available{% else %}booked{% endif %}">
+            <div class="slot-number">{{ slot[2] }}</div>
+            <div class="slot-status {% if slot[3] == 'available' %}status-available{% else %}status-booked{% endif %}">
+                {{ slot[3]|title }}
+            </div>
+            {% if slot[3] == 'available' %}
+                <button class="book-btn" 
+                        data-slot-id="{{ slot[0] }}" 
+                        data-slot-number="{{ slot[2] }}">
+                    Book Now
+                </button>
+            {% else %}
+                <button class="book-btn" disabled>
+                    Booked
+                </button>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="loading" id="loading">
+        Processing your booking...
+    </div>
+</div>
+{% endblock %} 

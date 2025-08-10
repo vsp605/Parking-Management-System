@@ -1,0 +1,634 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="pricing-page">
+    <div class="pricing-header">
+        <h1>💰 Parking Pricing</h1>
+        <p>Transparent and competitive pricing for all vehicle types</p>
+    </div>
+
+    <div class="pricing-overview">
+        <h2>📋 Pricing Overview</h2>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="overview-icon">🛵</div>
+                <h3>2-Wheeler</h3>
+                <div class="overview-price">₹20</div>
+                <p>First 2 hours</p>
+                <a href="{{ url_for('pricing1') }}" class="overview-btn">View Details</a>
+            </div>
+            <div class="overview-card featured">
+                <div class="overview-icon">🚗</div>
+                <h3>4-Wheeler</h3>
+                <div class="overview-price">₹40</div>
+                <p>First 2 hours</p>
+                <a href="{{ url_for('pricing2') }}" class="overview-btn">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-comparison">
+        <h2>📊 Pricing Comparison</h2>
+        <div class="comparison-table">
+            <div class="table-header">
+                <div class="header-cell">Duration</div>
+                <div class="header-cell">2-Wheeler</div>
+                <div class="header-cell">4-Wheeler</div>
+            </div>
+            <div class="table-row">
+                <div class="cell">0-2 hours</div>
+                <div class="cell">₹20</div>
+                <div class="cell">₹40</div>
+            </div>
+            <div class="table-row">
+                <div class="cell">2-3 hours</div>
+                <div class="cell">₹30</div>
+                <div class="cell">₹60</div>
+            </div>
+            <div class="table-row">
+                <div class="cell">3-4 hours</div>
+                <div class="cell">₹40</div>
+                <div class="cell">₹80</div>
+            </div>
+            <div class="table-row">
+                <div class="cell">4-5 hours</div>
+                <div class="cell">₹50</div>
+                <div class="cell">₹100</div>
+            </div>
+            <div class="table-row">
+                <div class="cell">5-6 hours</div>
+                <div class="cell">₹60</div>
+                <div class="cell">₹120</div>
+            </div>
+            <div class="table-row highlight">
+                <div class="cell">Daily Rate (24h)</div>
+                <div class="cell">₹200</div>
+                <div class="cell">₹400</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-features">
+        <h2>✨ What's Included</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Parking</h3>
+                <p>24/7 CCTV surveillance and security personnel</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Digital Receipts</h3>
+                <p>Instant digital receipts and bills</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⏰</div>
+                <h3>Flexible Timing</h3>
+                <p>Pay only for the time you use</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💳</div>
+                <h3>Multiple Payments</h3>
+                <p>Cards, UPI, and digital wallets accepted</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚨</div>
+                <h3>Emergency Support</h3>
+                <p>24/7 emergency contact numbers</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🅿️</div>
+                <h3>Easy Booking</h3>
+                <p>Book slots in advance online</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="special-offers">
+        <h2>🎉 Special Offers</h2>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-badge">New User</div>
+                <h3>First Time Discount</h3>
+                <p>Get 50% off on your first parking booking</p>
+                <span class="offer-code">Use code: FIRST50</span>
+            </div>
+            <div class="offer-card">
+                <div class="offer-badge">Regular</div>
+                <h3>Monthly Pass</h3>
+                <p>Save up to 30% with monthly parking passes</p>
+                <span class="offer-code">Contact support for details</span>
+            </div>
+            <div class="offer-card">
+                <div class="offer-badge">Weekend</div>
+                <h3>Weekend Special</h3>
+                <p>Flat ₹100 for 4-wheeler weekend parking</p>
+                <span class="offer-code">Valid Sat-Sun only</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-methods">
+        <h2>💳 Payment Methods</h2>
+        <div class="payment-grid">
+            <div class="payment-item">
+                <div class="payment-icon">💳</div>
+                <span>Credit/Debit Cards</span>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📱</div>
+                <span>UPI</span>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">🏦</div>
+                <span>Net Banking</span>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">💰</div>
+                <span>Digital Wallets</span>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">📞</div>
+                <span>Mobile Banking</span>
+            </div>
+            <div class="payment-item">
+                <div class="payment-icon">💵</div>
+                <span>Cash (at kiosks)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready to Start Parking?</h2>
+        <p>Choose your vehicle type and book your parking slot now</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('pricing1') }}" class="btn btn-primary">2-Wheeler Pricing</a>
+            <a href="{{ url_for('pricing2') }}" class="btn btn-primary">4-Wheeler Pricing</a>
+            <a href="{{ url_for('slots', location='Mall') }}" class="btn btn-secondary">Book Now</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.pricing-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.pricing-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.pricing-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.pricing-overview {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.pricing-overview h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.overview-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.overview-card {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.overview-card.featured {
+    border-color: #0a9396;
+    background: white;
+    transform: scale(1.05);
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+}
+
+.overview-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.overview-card h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.overview-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0a9396;
+    margin-bottom: 10px;
+}
+
+.overview-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.overview-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #0a9396;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.overview-btn:hover {
+    background: #005f73;
+    color: white;
+    text-decoration: none;
+}
+
+.pricing-comparison {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.pricing-comparison h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.comparison-table {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #005f73;
+    color: white;
+}
+
+.header-cell {
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row.highlight {
+    background: #e3f2fd;
+    font-weight: 600;
+}
+
+.cell {
+    padding: 15px;
+    text-align: center;
+    border-right: 1px solid #e9ecef;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.pricing-features {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.pricing-features h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #0a9396;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.special-offers {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.special-offers h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.offer-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #e9ecef;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    border-color: #ffc107;
+    transform: translateY(-3px);
+}
+
+.offer-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffc107;
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.offer-card h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.offer-card p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.offer-code {
+    display: block;
+    background: #0a9396;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.payment-methods {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.payment-methods h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.payment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.payment-item:hover {
+    border-color: #0a9396;
+    background: white;
+    transform: translateY(-2px);
+}
+
+.payment-icon {
+    font-size: 2rem;
+}
+
+.payment-item span {
+    color: #005f73;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cta-section {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.cta-section h2 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .pricing-header {
+        padding: 20px;
+    }
+    
+    .pricing-header h1 {
+        font-size: 2rem;
+    }
+    
+    .overview-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .overview-card.featured {
+        transform: none;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .pricing-overview,
+    .pricing-comparison,
+    .pricing-features,
+    .special-offers,
+    .payment-methods {
+        padding: 20px;
+    }
+    
+    .cta-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %} 

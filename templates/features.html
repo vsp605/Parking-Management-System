@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+
+{% block title %}Features - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="features-page">
+    <div class="features-header">
+        <h1>✨ System Features</h1>
+        <p>Discover what makes our parking management system the best choice for your parking needs</p>
+    </div>
+
+    {% if features_content %}
+        <div class="features-content">
+            {% for feature in features_content %}
+                <div class="feature-card">
+                    <div class="feature-content">
+                        {{ feature[0] | safe }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="default-features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Easy Booking System</h3>
+                    <p>Book your parking slot in advance with just a few clicks. No more circling around looking for parking!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Clear and competitive pricing for all vehicle types with no hidden charges or surprise fees.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access our system from any device, anywhere. Book parking on the go with our responsive design.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payments</h3>
+                    <p>Multiple payment options with secure transactions. Your financial information is always protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Digital Receipts</h3>
+                    <p>Get instant digital receipts and bills. No more paper receipts to keep track of.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>24/7 Service</h3>
+                    <p>Book and pay anytime, day or night. Our system is always available for your convenience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Get real-time information about slot availability and parking status.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Vehicle Security</h3>
+                    <p>24/7 CCTV surveillance and security personnel to ensure your vehicle's safety.</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="features-highlight">
+        <h2>🎯 Why Choose Our Parking System?</h2>
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <div class="highlight-icon">⚡</div>
+                <h4>Fast & Efficient</h4>
+                <p>Quick booking process that saves you time and reduces stress</p>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">💡</div>
+                <h4>Smart Technology</h4>
+                <p>Advanced technology ensures smooth operations and better user experience</p>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">🌱</div>
+                <h4>Eco-Friendly</h4>
+                <p>Digital system reduces paper waste and promotes environmental sustainability</p>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">🤝</div>
+                <h4>Customer Support</h4>
+                <p>Dedicated support team available to help you with any questions or issues</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Ready to Experience These Features?</h2>
+        <p>Join thousands of users who trust our parking management system</p>
+        <div class="cta-buttons">
+            {% if not session.get('user_id') %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+            {% else %}
+                <a href="{{ url_for('webpage') }}" class="btn btn-primary">Go to Dashboard</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.features-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #005f73, #0a9396);
+    color: white;
+    border-radius: 15px;
+}
+
+.features-header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.features-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.features-content {
+    margin-bottom: 40px;
+}
+
+.feature-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border-left: 4px solid #0a9396;
+}
+
+.feature-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.default-features {
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 4px solid #0a9396;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: #005f73;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.features-highlight {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.features-highlight h2 {
+    color: #005f73;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.highlight-item {
+    text-align: center;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    border-color: #0a9396;
+    background: white;
+    transform: translateY(-2px);
+}
+
+.highlight-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.highlight-item h4 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.highlight-item p {
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cta-section {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.cta-section h2 {
+    color: #005f73;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0a9396;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .features-header {
+        padding: 20px;
+    }
+    
+    .features-header h1 {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-highlight {
+        padding: 20px;
+    }
+    
+    .cta-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+{% endblock %}

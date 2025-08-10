@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications - Parking Management System{% endblock %}
+
+{% block content %}
+<div class="notifications-page">
+    <h1>📢 System Notifications</h1>
+    <p class="page-description">Stay updated with the latest announcements and system updates</p>
+
+    {% if notifications %}
+        <div class="notifications-container">
+            {% for notification in notifications %}
+                <div class="notification-card">
+                    <div class="notification-header">
+                        <span class="notification-icon">📢</span>
+                        <span class="notification-date">{{ notification[2].strftime('%B %d, %Y at %I:%M %p') if notification[2] else 'Recent' }}</span>
+                    </div>
+                    <div class="notification-content">
+                        <h4>{{ notification[0] }}</h4>
+                        <p>{{ notification[1] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-notifications">
+            <div class="empty-state">
+                <span class="empty-icon">📭</span>
+                <h3>No Notifications</h3>
+                <p>There are no notifications at the moment. Check back later for updates!</p>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">← Back to Home</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.notifications-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-description {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.notifications-container {
+    margin-bottom: 30px;
+}
+
+.notification-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notification-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+}
+
+.notification-date {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.notification-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+.no-notifications {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state {
+    color: #666;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    color: white;
+    text-decoration: none;
+}
+</style>
+{% endblock %}

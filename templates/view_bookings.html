@@ -1,0 +1,7 @@
+<h2>Booked Slots</h2>
+<ul>
+    {% for b in bookings %}
+    <li>{{ b.location }} - Booked by: {{ b.booked_by }}</li>
+    {% endfor %}
+</ul>
+<a href="/admin">Back</a>
