@@ -95,3 +95,27 @@ For production, move all sensitive configuration values to environment variables
 Hash both admin and user passwords.
 
 Use HTTPS and strong secret keys.
+
+<img width="1920" height="1080" alt="Screenshot 2025-08-24 223818" src="https://github.com/user-attachments/assets/add28243-aea8-45df-b051-d9c3fa882f02" />
+
+
+<img width="1920" height="1080" alt="Screenshot 2025-08-24 223833" src="https://github.com/user-attachments/assets/d5563997-6d17-49df-9b21-cf3b7d6fa091" />
+
+
+<img width="1920" height="1080" alt="Screenshot 2025-08-24 223924" src="https://github.com/user-attachments/assets/bd29c1d0-efa5-411a-bd56-4691ad7761d9" />
+
+
+<img width="1920" height="1080" alt="Screenshot 2025-08-24 224001" src="https://github.com/user-attachments/assets/2f703479-2cbe-4eb4-90ea-88cdc8a5a32b" />
+
+
+
+
+
+
+
+
+
+
+
+
+
