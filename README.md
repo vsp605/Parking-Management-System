@@ -1,5 +1,5 @@
-Parking System Flask Application
-A web-based parking management system built with Flask, MySQL, and Python. The application supports user and admin roles, enabling slot booking, payments, and management of parking spaces with user-friendly dashboards.
+Parking Mangement System 
+  A web-based parking management system built with Flask, MySQL, and Python. The application supports user and admin roles, enabling slot booking, payments, and management of parking spaces with user-friendly dashboards.
 
 Features
 User Registration & Login: Secure authentication, profile picture upload, password hashing.
