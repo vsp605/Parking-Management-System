@@ -1,8 +1,8 @@
-<img width="1920" height="1080" alt="Screenshot 2025-08-24 224001" src="https://github.com/user-attachments/assets/a13d3666-3ea5-42b1-8ffb-6ec4e45f8ea5" />🚗 Parking Management System
+🚗 **Parking Management System**
 
 A web-based parking management system built with Flask, MySQL, and Python. The application supports both User and Admin roles, enabling slot booking, payments, and efficient management of parking spaces with user-friendly dashboards.
 
-✨ Features
+✨ **Features**
 
 User Registration & Login: Secure authentication with password hashing and profile picture upload.
 
@@ -22,7 +22,7 @@ Session Management & Security: Session handling, upload restrictions, allowed fi
 
 Extensive Logging: Debug and error logs for troubleshooting.
 
-🛠️ Technology Stack
+🛠️ **Technology Stack**
 
 Backend: Python, Flask, Flask-MySQLdb, Werkzeug
 
@@ -32,7 +32,7 @@ Frontend: Flask templates (HTML, CSS, JS)
 
 PDF Generation: Optional via pdfkit + wkhtmltopdf
 
-🚀 Getting Started
+🚀 **Getting Started**
 ✅ Prerequisites
 
 Python 3.x
@@ -75,7 +75,7 @@ MYSQL_PASSWORD=yourpassword
 MYSQL_DB=parking_system1
 SECRET_KEY=your-secret-key
 
-▶️ Running the App
+▶️**Running the App**
 python app.py
 
 
