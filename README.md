@@ -1,4 +1,4 @@
-🚗 Parking Management System
+<img width="1920" height="1080" alt="Screenshot 2025-08-24 224001" src="https://github.com/user-attachments/assets/a13d3666-3ea5-42b1-8ffb-6ec4e45f8ea5" />🚗 Parking Management System
 
 A web-based parking management system built with Flask, MySQL, and Python. The application supports both User and Admin roles, enabling slot booking, payments, and efficient management of parking spaces with user-friendly dashboards.
 
@@ -82,13 +82,13 @@ python app.py
 The app runs at: http://localhost:5000/
 
 
-🎯 Usage
+🎯 **Usage**
 
 User: Register, login, view slots, book a slot, make payments, and download bills.
 
 Admin: Register/login, manage slots and payments, add features/guidelines, and view the dashboard.
 
-🔒 Security Notes
+🔒 **Security Notes**
 
 For production, move all sensitive configuration values to environment variables.
 
@@ -96,13 +96,22 @@ Hash both admin and user passwords.
 
 Use HTTPS and strong secret keys.
 
+
+**Results**
+
 <img width="1920" height="1080" alt="Screenshot 2025-08-24 223818" src="https://github.com/user-attachments/assets/add28243-aea8-45df-b051-d9c3fa882f02" />
+
+
 
 
 <img width="1920" height="1080" alt="Screenshot 2025-08-24 223833" src="https://github.com/user-attachments/assets/d5563997-6d17-49df-9b21-cf3b7d6fa091" />
 
 
+
+
 <img width="1920" height="1080" alt="Screenshot 2025-08-24 223924" src="https://github.com/user-attachments/assets/bd29c1d0-efa5-411a-bd56-4691ad7761d9" />
+
+
 
 
 <img width="1920" height="1080" alt="Screenshot 2025-08-24 224001" src="https://github.com/user-attachments/assets/2f703479-2cbe-4eb4-90ea-88cdc8a5a32b" />
