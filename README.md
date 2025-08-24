@@ -81,26 +81,6 @@ python app.py
 
 The app runs at: http://localhost:5000/
 
-📂 Folder Structure
-.
-├── app.py
-├── requirements.txt
-├── README.md
-├── static/
-│   └── uploads/
-├── templates/
-│   ├── index.html
-│   ├── register.html
-│   ├── login.html
-│   ├── admin_register.html
-│   ├── admin_dashboard.html
-│   ├── admin_manage_slots.html
-│   ├── features.html
-│   ├── guidelines.html
-│   ├── Slots.html
-│   ├── Payment.html
-│   ├── Bill.html
-│   └── ...etc.
 
 🎯 Usage
 
